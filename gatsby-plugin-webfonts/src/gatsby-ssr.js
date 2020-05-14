@@ -9,7 +9,24 @@ import Preconnect from "./components/preconnect";
 import Preload from "./components/preload";
 import Css from "./components/css";
 
-export const onRenderBody = ({ setHeadComponents }, pluginOptions) => {
+export const onRenderBody = (
+  { setHeadComponents, pathname },
+  pluginOptions,
+) => {
+  const blackListPaths = pluginOptions.blacklist;
+
+  let isBlackListedPath;
+
+  if (blackListPaths && blackListPaths.length > 0) {
+    blackListPaths.forEach(path => {
+      if (pathname.includes(path)) {
+        isBlackListedPath = true;
+      }
+    });
+  }
+
+  if (isBlackListedPath) return;
+
   if (isEmpty(pluginOptions.fonts)) return;
 
   const { usePreload, formats, ...options } = createOptions(pluginOptions);
