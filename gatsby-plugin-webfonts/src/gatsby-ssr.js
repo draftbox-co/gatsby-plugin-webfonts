@@ -1,5 +1,4 @@
 import React from "react";
-import fs from "fs";
 import path from "path";
 import isEmpty from "lodash.isempty";
 
@@ -8,6 +7,7 @@ import { isGooglePreconnectEnabled } from "./modules/google";
 import Preconnect from "./components/preconnect";
 import Preload from "./components/preload";
 import Css from "./components/css";
+import webFontsCSS from "!!raw-loader!/.cache/webfonts/webfonts.css"
 
 export const onRenderBody = (
   { setHeadComponents, pathname },
@@ -31,10 +31,7 @@ export const onRenderBody = (
 
   const { usePreload, formats, ...options } = createOptions(pluginOptions);
 
-  const css = fs.readFileSync(
-    path.join(`./.cache`, `webfonts`, `webfonts.css`),
-    `utf8`,
-  );
+  const css = webFontsCSS;
 
   setHeadComponents([
     <Preconnect

@@ -1,12 +1,12 @@
 {
   "name": "@draftbox-co/gatsby-plugin-webfonts",
-  "version": "1.1.3",
+  "version": "1.1.5",
   "description": "A Gatsby plugin to handle cdn, base64 and self hosted webfonts",
   "license": "MIT",
   "author": "hello@webappsolutions.de",
   "repository": {
     "type": "git",
-    "url": "https://github.com/hupe1980/gatsby-plugin-webfonts"
+    "url": "https://github.com/draftbox-co/gatsby-plugin-webfonts"
   },
   "keywords": [
     "gatsby-plugin",
@@ -42,5 +42,8 @@
     "babel-preset-gatsby-package": "^0.1.4",
     "cross-env": "^5.2.0",
     "jest": "^24.8.0"
+  },
+  "publishConfig": {
+    "registry":"https://npm.pkg.github.com"
   }
 }
